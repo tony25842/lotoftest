@@ -9,8 +9,12 @@
 </head>
 <body style="width:100%;">
 
-    <script>var
-        request = new XMLHttpRequest();
+    <script>
+        
+        var request = new XMLHttpRequest();
+        
+        request.setRequestHeader( 'Access-Control-Allow-Origin', '*');
+        request.setRequestHeader( 'Content-Type', 'application/json' );
         request.open('GET', 'http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002', true);
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
