@@ -1,36 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title></title>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body style="width:100%;">
 
-    <script crossorigin="anonymous">
-        $(document).ready(function () {
-            initSubmitForm();
-        });
+    <script>var
+        request = new XMLHttpRequest();
+        request.open('GET', 'http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002', true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
 
-        var initSubmitForm = function () {
-            // 使用 ajax() 來呼叫 REST API
-            $.ajax({
-                url: 'http://data.ntpc.gov.tw/api/v1/rest/datastore/7B7A8FD9-2722-4F17-B515-849E00073865',
-                type: "GET",
-                dataType: "json",
-                complete: function (data, textStatus, jqXHR) {
-                    console.log(textStatus);
-                },
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                }
-            });
-
-            return false;
+                // Success!
+                console.log(request.responseText);
+            }
         };
+        request.send();
     </script>
 </body>
 </html>
